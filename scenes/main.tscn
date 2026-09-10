@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_0wfyh")
 
 [node name="Temp" type="Sprite2D" parent="." unique_id=2099203747]
+modulate = Color(1, 1, 1, 0.23529412)
 position = Vector2(960, 540)
 texture = ExtResource("1_o5qli")
 
@@ -30,6 +31,15 @@ theme_override_constants/separation = 20
 
 [node name="Volume" type="HSlider" parent="Buttons" unique_id=329342154]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Buttons/Volume" unique_id=402695886]
+layout_mode = 0
+offset_top = -67.0
+offset_right = 268.0
+offset_bottom = -11.0
+theme_override_font_sizes/font_size = 40
+text = "VOLUME"
+horizontal_alignment = 1
 
 [node name="Fullscreen" type="CheckButton" parent="Buttons" unique_id=1020318994]
 layout_mode = 2
