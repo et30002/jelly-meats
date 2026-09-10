@@ -5,6 +5,9 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
 distance = -492.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_014kd"]
+size = Vector2(67.2, 8.800007)
+
 [node name="Level1" type="Node2D" unique_id=1254429187]
 
 [node name="Player" parent="." unique_id=1296514369 instance=ExtResource("1_014kd")]
@@ -15,3 +18,16 @@ distance = -492.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=667581633]
 shape = SubResource("WorldBoundaryShape2D_014kd")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=490762626]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=472804598]
+position = Vector2(-13.000004, 243.99998)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_014kd")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=1898671310]
+offset_left = -172.0
+offset_top = 222.0
+offset_right = 152.0
+offset_bottom = 264.0
