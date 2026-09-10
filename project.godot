@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jelly Meats"
-run/main_scene="uid://dvfncrq2xc6vm"
+run/main_scene="uid://31ko527v5yki"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -27,4 +27,5 @@ window/stretch/mode="canvas_items"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

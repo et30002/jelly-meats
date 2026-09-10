@@ -13,3 +13,28 @@ grow_vertical = 2
 [node name="Temp" type="Sprite2D" parent="." unique_id=2099203747]
 position = Vector2(960, 540)
 texture = ExtResource("1_o5qli")
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=740483722]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -465.0
+offset_top = 130.0
+offset_right = -176.0
+offset_bottom = 279.0
+grow_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="Volume" type="HSlider" parent="Buttons" unique_id=329342154]
+layout_mode = 2
+
+[node name="Fullscreen" type="CheckButton" parent="Buttons" unique_id=1020318994]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "FULLSCREEN"
+
+[node name="Quit" type="Button" parent="Buttons" unique_id=1024837617]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "QUIT"
