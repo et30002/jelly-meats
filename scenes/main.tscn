@@ -12,7 +12,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0wfyh")
 
-[node name="Temp" type="Sprite2D" parent="." unique_id=2099203747]
+[node name="Start_Instructions" type="Label" parent="." unique_id=476762426]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -11.5
+offset_right = 78.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "press SPACE to start"
+
+[node name="Key_Bindings" type="Label" parent="." unique_id=1823552414]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -481.0
+offset_right = 282.0
+offset_bottom = -184.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 34
+text = "climb up - W
+left - A
+right - D
+climb down - S
+jump - SPACE
+LMB - attack"
+
+[node name="Temp_Background" type="Sprite2D" parent="." unique_id=2099203747]
 modulate = Color(1, 1, 1, 0.23529412)
 position = Vector2(960, 540)
 texture = ExtResource("1_o5qli")
@@ -32,7 +66,7 @@ theme_override_constants/separation = 20
 [node name="Volume" type="HSlider" parent="Buttons" unique_id=329342154]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Buttons/Volume" unique_id=402695886]
+[node name="Volume_Label" type="Label" parent="Buttons/Volume" unique_id=402695886]
 layout_mode = 0
 offset_top = -67.0
 offset_right = 268.0
