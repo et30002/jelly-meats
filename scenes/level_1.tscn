@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://31ko527v5yki"]
 
 [ext_resource type="PackedScene" uid="uid://32n3834q8fhv" path="res://scenes/player.tscn" id="1_014kd"]
+[ext_resource type="Script" uid="uid://c4y44hn82788f" path="res://scripts/level_1.gd" id="1_bswci"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
 distance = -492.0
@@ -9,6 +10,7 @@ distance = -492.0
 size = Vector2(67.2, 8.800007)
 
 [node name="Level1" type="Node2D" unique_id=1254429187]
+script = ExtResource("1_bswci")
 
 [node name="Player" parent="." unique_id=1296514369 instance=ExtResource("1_014kd")]
 
@@ -27,7 +29,7 @@ scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_014kd")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=1898671310]
-offset_left = -172.0
+offset_left = -182.0
 offset_top = 222.0
 offset_right = 152.0
 offset_bottom = 264.0
