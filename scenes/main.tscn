@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://sgtvnnhdneye" path="res://assets/main_menu/temp_main_menu.png" id="1_o5qli"]
 [ext_resource type="AudioStream" uid="uid://boag6qnlcvn6c" path="res://assets/sfx/boss_music.wav" id="2_sugp2"]
 [ext_resource type="FontFile" uid="uid://c88b6i248dccp" path="res://assets/fonts/PixelOperator.ttf" id="3_jyhfs"]
+[ext_resource type="Script" uid="uid://dp70dxq4oqlw7" path="res://scripts/volume.gd" id="5_tbgi4"]
 
 [node name="Main" type="Control" unique_id=1195490529]
 layout_mode = 3
@@ -17,6 +18,7 @@ script = ExtResource("1_0wfyh")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=231146794]
 stream = ExtResource("2_sugp2")
 autoplay = true
+bus = &"Music"
 
 [node name="Start_Instructions" type="Label" parent="." unique_id=476762426]
 layout_mode = 1
@@ -64,6 +66,10 @@ theme_override_constants/separation = 20
 
 [node name="Volume" type="HSlider" parent="Buttons" unique_id=329342154]
 layout_mode = 2
+min_value = -60.0
+max_value = 20.0
+script = ExtResource("5_tbgi4")
+audio_bus_name = "Music"
 
 [node name="Volume_Label" type="Label" parent="Buttons/Volume" unique_id=402695886]
 layout_mode = 0
@@ -133,5 +139,6 @@ text = "CONTROLS"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="Buttons/Volume" to="Buttons/Volume" method="_on_value_changed"]
 [connection signal="pressed" from="Buttons/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="Buttons/Windowed" to="." method="_on_windowed_pressed"]
