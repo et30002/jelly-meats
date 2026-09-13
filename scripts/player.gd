@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	elif direction < 0:
 		animated_sprite.flip_h = true
 	
-	# Play animations:
+	# Play animations.
 	if direction == 0:
 		animated_sprite.play("idle")
 	
