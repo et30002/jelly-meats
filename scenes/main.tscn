@@ -5,7 +5,6 @@
 [ext_resource type="FontFile" uid="uid://c88b6i248dccp" path="res://assets/fonts/PixelOperator.ttf" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://xcah14iacq25" path="res://assets/main_menu/main_menu_background.png" id="4_tbgi4"]
 [ext_resource type="Script" uid="uid://dp70dxq4oqlw7" path="res://scripts/volume.gd" id="5_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://7evqqhsdmjte" path="res://assets/player/still_01.png" id="6_tefeu"]
 
 [node name="Main" type="Control" unique_id=1195490529]
 layout_mode = 3
@@ -22,7 +21,10 @@ autoplay = true
 bus = &"Music"
 
 [node name="Temp_Background" type="Sprite2D" parent="." unique_id=2099203747]
-position = Vector2(960, 540)
+modulate = Color(0.110147424, 0.110147424, 0.110147424, 1)
+self_modulate = Color(8.805001, 8.805001, 8.805001, 1)
+position = Vector2(960.1784, 584.56256)
+scale = Vector2(0.27542144, 0.23727575)
 texture = ExtResource("4_tbgi4")
 
 [node name="Start_Instructions" type="Label" parent="." unique_id=476762426]
@@ -32,13 +34,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -290.0
-offset_top = 411.0
-offset_right = 350.0
-offset_bottom = 491.0
+offset_left = 218.0
+offset_top = 64.0
+offset_right = 858.0
+offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.51, 0.51, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.41960785)
 theme_override_fonts/font = ExtResource("3_jyhfs")
 theme_override_font_sizes/font_size = 80
 text = "press SPACE to start"
@@ -50,12 +52,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 580.0
-offset_top = -395.0
-offset_right = 785.0
-offset_bottom = -307.0
+offset_left = 724.0
+offset_top = -108.0
+offset_right = 929.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0.5686275, 1)
 theme_override_fonts/font = ExtResource("3_jyhfs")
 theme_override_font_sizes/font_size = 80
 text = "QUIT"
@@ -65,10 +68,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -373.0
-offset_top = 350.0
-offset_right = -185.0
-offset_bottom = 519.0
+offset_left = -709.0
+offset_top = 902.0
+offset_right = -521.0
+offset_bottom = 1071.0
 grow_horizontal = 0
 theme_override_constants/separation = 20
 
@@ -85,6 +88,7 @@ offset_left = 2.0
 offset_top = -51.0
 offset_right = 187.0
 offset_bottom = 1.0
+theme_override_colors/font_color = Color(0.7372549, 0.6313726, 0.6862745, 1)
 theme_override_fonts/font = ExtResource("3_jyhfs")
 theme_override_font_sizes/font_size = 50
 text = "VOLUME"
@@ -92,12 +96,14 @@ horizontal_alignment = 1
 
 [node name="Fullscreen" type="Button" parent="Buttons" unique_id=645254795]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.7372549, 0.6313726, 0.6862745, 1)
 theme_override_fonts/font = ExtResource("3_jyhfs")
 theme_override_font_sizes/font_size = 40
 text = "FULLSCREEN"
 
 [node name="Windowed" type="Button" parent="Buttons" unique_id=1616338212]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.7372549, 0.6313726, 0.6862745, 1)
 theme_override_fonts/font = ExtResource("3_jyhfs")
 theme_override_font_sizes/font_size = 40
 text = "WINDOWED"
@@ -107,11 +113,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 1500.0
-offset_top = -494.0
-offset_right = 1786.0
-offset_bottom = -376.0
+offset_left = 1359.0
+offset_top = -151.0
+offset_right = 1645.0
+offset_bottom = -33.0
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.7366559, 0.6304773, 0.6881482, 1)
 theme_override_fonts/font = ExtResource("3_jyhfs")
 theme_override_font_sizes/font_size = 25
 text = "move - WASD
@@ -126,21 +133,17 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -419.0
-offset_top = -16.5
-offset_right = -136.0
-offset_bottom = 34.5
+offset_left = -560.0
+offset_top = 311.0
+offset_right = -277.0
+offset_bottom = 362.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.7366559, 0.6304773, 0.6881482, 1)
 theme_override_fonts/font = ExtResource("3_jyhfs")
 theme_override_font_sizes/font_size = 50
 text = "CONTROLS"
 horizontal_alignment = 1
-
-[node name="Still01" type="Sprite2D" parent="." unique_id=1514070929]
-position = Vector2(960, 540)
-scale = Vector2(0.24963541, 0.24963541)
-texture = ExtResource("6_tefeu")
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="value_changed" from="Buttons/Volume" to="Buttons/Volume" method="_on_value_changed"]
