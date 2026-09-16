@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bqghkd4wwhvtq"]
+
+[ext_resource type="Script" uid="uid://baowr64nuphl1" path="res://scripts/acid_pool.gd" id="1_ftlk3"]
+
+[node name="Acid_Pool" type="CharacterBody2D" unique_id=237109865]
+script = ExtResource("1_ftlk3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1703580679]
+offset_left = -489.0
+offset_right = 2333.0
+offset_bottom = 469.0
+color = Color(0.46444714, 1.100991e-06, 2.4065375e-07, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1442864805]

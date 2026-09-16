@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 
-const SPEED = 350.0
+const SPEED = 400.0
 const JUMP_VELOCITY = -700.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var knife_collision: CollisionShape2D = $AnimatedSprite2D/KnifeHit/KnifeCollision
+
 
 
 func _physics_process(delta: float) -> void:
@@ -25,7 +27,13 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = true
 	
 	# Play animations.
-	if direction == 0:
+	# Enable attack collision box.
+	if Input.is_action_just_pressed("attack"):
+		knife_collision.disabled = false
+		animated_sprite.play("attack")
+		await animated_sprite.animation_finished
+	elif direction == 0:
+		knife_collision.disabled = true
 		animated_sprite.play("idle")
 	
 	# Move the sprite.
@@ -33,5 +41,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+
 
 	move_and_slide()
