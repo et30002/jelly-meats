@@ -1,35 +1,27 @@
 [gd_scene format=3 uid="uid://beh3tqkumqatc"]
 
 [ext_resource type="Script" uid="uid://bb5mp20e3hnv5" path="res://scripts/boss_1.gd" id="1_gu4qg"]
+[ext_resource type="Texture2D" uid="uid://dxe8cc1isg7n3" path="res://assets/enemies/boss_temp_01.png" id="2_qrnk6"]
+[ext_resource type="Texture2D" uid="uid://btwdtkcpnth1o" path="res://assets/enemies/boss_temp_02.png" id="3_6wt1p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j4int"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qrnk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6wt1p")
+}],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [node name="Boss1" type="CharacterBody2D" unique_id=1197498593]
 script = ExtResource("1_gu4qg")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=99164977]
-offset_left = -494.0
-offset_top = -750.0
-offset_right = -474.0
-offset_bottom = -720.0
-scale = Vector2(50, 50)
-color = Color(0.40784314, 0, 0.40784314, 0.62352943)
-metadata/_edit_use_anchors_ = true
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1916998823]
-scale = Vector2(50, 50)
+position = Vector2(30, -323)
 sprite_frames = SubResource("SpriteFrames_j4int")
 animation = &"idle"
-
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=517497828]
-offset_left = -133.0
-offset_top = -15.0
-offset_right = 139.0
-offset_bottom = 12.0
-value = 100.0

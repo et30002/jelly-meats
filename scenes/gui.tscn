@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c6d26agxy76qv"]
+
+[ext_resource type="Script" uid="uid://co20fyb5lyols" path="res://scripts/gui.gd" id="1_b8iy7"]
+[ext_resource type="Texture2D" uid="uid://bw14q78s6863" path="res://assets/player/player_health_01.png" id="1_ynd5l"]
+[ext_resource type="Texture2D" uid="uid://f3b35t5rqqtj" path="res://assets/player/player_health_02.png" id="2_b8iy7"]
+[ext_resource type="Texture2D" uid="uid://b26xvojjv3d4w" path="res://assets/player/player_health_03.png" id="3_jqlde"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08a8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ynd5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_b8iy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jqlde")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GUI" type="Control" unique_id=1012906513]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b8iy7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1344595925]
+position = Vector2(-3, -12)
+sprite_frames = SubResource("SpriteFrames_08a8y")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2140409932]
+layout_mode = 0
+offset_left = -278.0
+offset_top = -450.99997
+offset_right = -6.0
+offset_bottom = -423.99997
+scale = Vector2(2.3081646, 1.8897064)
+value = 100.0

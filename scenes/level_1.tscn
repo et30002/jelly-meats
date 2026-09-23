@@ -5,10 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://beh3tqkumqatc" path="res://scenes/boss_1.tscn" id="3_4nkto"]
 [ext_resource type="Texture2D" uid="uid://bh216e6bcrim7" path="res://assets/backgrounds/boss1_background.png" id="3_rus8k"]
 [ext_resource type="AudioStream" uid="uid://boag6qnlcvn6c" path="res://assets/sfx/boss_music.wav" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://c6d26agxy76qv" path="res://scenes/gui.tscn" id="5_15mv3"]
 [ext_resource type="PackedScene" uid="uid://bqghkd4wwhvtq" path="res://scenes/acid_pool.tscn" id="6_fcfvj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_014kd"]
-size = Vector2(66.799995, 8.400003)
+[ext_resource type="PackedScene" uid="uid://c4k7wbuph3st6" path="res://scenes/basic_platform.tscn" id="6_pa8r4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fcfvj"]
 
@@ -41,72 +40,53 @@ texture = ExtResource("3_rus8k")
 [node name="Boss1" parent="." unique_id=1197498593 instance=ExtResource("3_4nkto")]
 position = Vector2(2, 379)
 
-[node name="Player" parent="." unique_id=1296514369 instance=ExtResource("1_014kd")]
-position = Vector2(0, -1340)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1694551134]
-scale = Vector2(4, 4)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=108022910]
 stream = ExtResource("4_5xbjy")
 autoplay = true
 bus = &"Music"
 
-[node name="Test_Platforms" type="Node" parent="." unique_id=238708922]
+[node name="BasicPlatforms" type="Node" parent="." unique_id=1689978352]
 
-[node name="Test_Platform" type="StaticBody2D" parent="Test_Platforms" unique_id=490762626]
-position = Vector2(17, 805)
-scale = Vector2(1, 0.99323136)
+[node name="BasicPlatform" parent="BasicPlatforms" unique_id=417994278 instance=ExtResource("6_pa8r4")]
+position = Vector2(2, 1030)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test_Platforms/Test_Platform" unique_id=472804598]
-position = Vector2(-16, 311)
-scale = Vector2(5, 5)
-shape = SubResource("RectangleShape2D_014kd")
+[node name="BasicPlatform2" parent="BasicPlatforms" unique_id=504372409 instance=ExtResource("6_pa8r4")]
+position = Vector2(-430, 820)
 
-[node name="ColorRect" type="ColorRect" parent="Test_Platforms/Test_Platform" unique_id=1898671310]
-offset_left = -183.0
-offset_top = 290.0
-offset_right = 151.0
-offset_bottom = 332.0
-color = Color(0, 0, 0.56078434, 0.4627451)
-metadata/_edit_use_anchors_ = true
+[node name="BasicPlatform3" parent="BasicPlatforms" unique_id=1954618141 instance=ExtResource("6_pa8r4")]
+position = Vector2(406, 685)
 
-[node name="Test_Platform2" type="StaticBody2D" parent="Test_Platforms" unique_id=844008911]
-position = Vector2(17, 805)
+[node name="BasicPlatform4" parent="BasicPlatforms" unique_id=1236304040 instance=ExtResource("6_pa8r4")]
+position = Vector2(-1003, 1040)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test_Platforms/Test_Platform2" unique_id=1194119108]
-position = Vector2(-343, 77.00003)
-scale = Vector2(5, 5)
-shape = SubResource("RectangleShape2D_014kd")
+[node name="BasicPlatform5" parent="BasicPlatforms" unique_id=957075315 instance=ExtResource("6_pa8r4")]
+position = Vector2(1054, 1060)
 
-[node name="ColorRect" type="ColorRect" parent="Test_Platforms/Test_Platform2" unique_id=871931961]
-offset_left = -510.0
-offset_top = 56.0
-offset_right = -176.0
-offset_bottom = 98.0
-color = Color(0, 0, 0.56078434, 0.4627451)
-metadata/_edit_use_anchors_ = true
+[node name="BasicPlatform6" parent="BasicPlatforms" unique_id=1520933319 instance=ExtResource("6_pa8r4")]
+position = Vector2(-872, 549)
 
-[node name="Test_Platform3" type="StaticBody2D" parent="Test_Platforms" unique_id=581189618]
-position = Vector2(17, 805)
+[node name="BasicPlatform7" parent="BasicPlatforms" unique_id=868617353 instance=ExtResource("6_pa8r4")]
+position = Vector2(1031, 565)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test_Platforms/Test_Platform3" unique_id=71381994]
-position = Vector2(324, -81)
-scale = Vector2(5, 5)
-shape = SubResource("RectangleShape2D_014kd")
+[node name="BasicPlatform8" parent="BasicPlatforms" unique_id=1150546312 instance=ExtResource("6_pa8r4")]
+position = Vector2(-1251, 241)
 
-[node name="ColorRect" type="ColorRect" parent="Test_Platforms/Test_Platform3" unique_id=1342307355]
-offset_left = 157.0
-offset_top = -102.0
-offset_right = 491.0
-offset_bottom = -60.0
-color = Color(0, 0, 0.56078434, 0.4627451)
-metadata/_edit_use_anchors_ = true
+[node name="BasicPlatform9" parent="BasicPlatforms" unique_id=1487671225 instance=ExtResource("6_pa8r4")]
+position = Vector2(1386, 243)
 
 [node name="Acid_Pool" parent="." unique_id=2061590429 instance=ExtResource("6_fcfvj")]
 position = Vector2(-2744, 1120)
 scale = Vector2(3.0400016, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Acid_Pool" unique_id=10493915]
-position = Vector2(10, 308)
+position = Vector2(9.868453, 148)
 shape = SubResource("WorldBoundaryShape2D_fcfvj")
+
+[node name="Player" parent="Acid_Pool" unique_id=1296514369 instance=ExtResource("1_014kd")]
+position = Vector2(902.6311, -2460)
+scale = Vector2(0.0822368, 0.25)
+
+[node name="Camera2D" type="Camera2D" parent="Acid_Pool/Player" unique_id=1694551134]
+scale = Vector2(4, 4)
+
+[node name="GUI" parent="Acid_Pool/Player/Camera2D" unique_id=1012906513 instance=ExtResource("5_15mv3")]
