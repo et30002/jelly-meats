@@ -1,40 +1,26 @@
 [gd_scene format=3 uid="uid://32n3834q8fhv"]
 
-[ext_resource type="Texture2D" uid="uid://7evqqhsdmjte" path="res://assets/player/still_01.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://b0x6uj8kkhkam" path="res://scripts/player.gd" id="1_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://dbmmpnopsjfqv" path="res://assets/player/still_attack.png" id="2_dqkch"]
-[ext_resource type="Texture2D" uid="uid://cho17xi2afw4i" path="res://assets/player/still_02.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dlo4u2etl4knr" path="res://assets/player/meaty_attack_01.png" id="2_smehm"]
+[ext_resource type="Texture2D" uid="uid://njw6hjkmd5kr" path="res://assets/player/meaty_attack_02.png" id="3_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://cexpf2a0855m5" path="res://assets/player/meaty_idle_01.png" id="4_fjrip"]
+[ext_resource type="Texture2D" uid="uid://806lpkeo5xxk" path="res://assets/player/meaty_idle_02.png" id="5_smehm"]
+[ext_resource type="Texture2D" uid="uid://bgiu1h3xxp38v" path="res://assets/player/meaty_jump_01.png" id="6_smehm"]
+[ext_resource type="Texture2D" uid="uid://c7klvuo7mpl84" path="res://assets/player/meaty_run_01.png" id="6_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://bf36rgk8o6yol" path="res://assets/player/meaty_run_02.png" id="7_y4r1p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dqkch"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_dqkch")
+"texture": ExtResource("2_smehm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_g2els")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_dqkch")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_g2els")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_dqkch")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_g2els")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_dqkch")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_g2els")
+"texture": ExtResource("3_ur7pv")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [],
 "loop": true,
@@ -43,37 +29,47 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_g2els")
+"texture": ExtResource("4_fjrip")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_qhqgy")
+"texture": ExtResource("5_smehm")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_smehm")
+}],
 "loop": true,
 "name": &"jump",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ur7pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y4r1p")
+}],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(371.25, 411.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
-size = Vector2(244, 568)
+size = Vector2(344, 548)
 
 [node name="Player" type="CharacterBody2D" unique_id=1296514369]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=616215592]
+scale = Vector2(0.46740052, 0.46740052)
 sprite_frames = SubResource("SpriteFrames_dqkch")
 animation = &"attack"
 
@@ -85,5 +81,5 @@ shape = SubResource("RectangleShape2D_dqkch")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=192215796]
-position = Vector2(-118, 8)
+position = Vector2(-16, 2)
 shape = SubResource("RectangleShape2D_qlg0r")

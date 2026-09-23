@@ -10,6 +10,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_014kd"]
 size = Vector2(66.799995, 8.400003)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fcfvj"]
+
 [node name="Level1" type="Node2D" unique_id=1254429187]
 script = ExtResource("1_bswci")
 
@@ -54,6 +56,7 @@ bus = &"Music"
 
 [node name="Test_Platform" type="StaticBody2D" parent="Test_Platforms" unique_id=490762626]
 position = Vector2(17, 805)
+scale = Vector2(1, 0.99323136)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test_Platforms/Test_Platform" unique_id=472804598]
 position = Vector2(-16, 311)
@@ -101,4 +104,9 @@ color = Color(0, 0, 0.56078434, 0.4627451)
 metadata/_edit_use_anchors_ = true
 
 [node name="Acid_Pool" parent="." unique_id=2061590429 instance=ExtResource("6_fcfvj")]
-position = Vector2(-897, 1120)
+position = Vector2(-2744, 1120)
+scale = Vector2(3.0400016, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Acid_Pool" unique_id=10493915]
+position = Vector2(10, 308)
+shape = SubResource("WorldBoundaryShape2D_fcfvj")
