@@ -54,7 +54,7 @@ position = Vector2(2, 1030)
 position = Vector2(-430, 820)
 
 [node name="BasicPlatform3" parent="BasicPlatforms" unique_id=1954618141 instance=ExtResource("6_pa8r4")]
-position = Vector2(406, 685)
+position = Vector2(418, 750)
 
 [node name="BasicPlatform4" parent="BasicPlatforms" unique_id=1236304040 instance=ExtResource("6_pa8r4")]
 position = Vector2(-1003, 1040)
