@@ -59,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(371.25, 411.5)
+size = Vector2(528.7283, 753.10144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
 size = Vector2(396, 548)
@@ -76,7 +76,7 @@ animation = &"attack"
 [node name="KnifeHit" type="Area2D" parent="AnimatedSprite2D" unique_id=2091399879]
 
 [node name="KnifeCollision" type="CollisionShape2D" parent="AnimatedSprite2D/KnifeHit" unique_id=347941428]
-position = Vector2(170.375, 1.75)
+position = Vector2(248.18117, -94.13768)
 shape = SubResource("RectangleShape2D_dqkch")
 disabled = true
 
@@ -86,4 +86,4 @@ disabled = true
 position = Vector2(-42, 2)
 shape = SubResource("RectangleShape2D_qlg0r")
 
-[connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]
+[connection signal="body_shape_entered" from="PlayerArea" to="." method="_player_enter_shape"]

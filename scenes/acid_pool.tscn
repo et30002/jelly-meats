@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://baowr64nuphl1" path="res://scripts/acid_pool.gd" id="1_ftlk3"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ftlk3"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftlk3"]
 size = Vector2(110.80345, 27.612991)
 
-[node name="Acid_Pool" type="CharacterBody2D" unique_id=237109865]
+[node name="Acid_Pool" type="RigidBody2D" unique_id=1939800490]
 script = ExtResource("1_ftlk3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=396637835]
+sprite_frames = SubResource("SpriteFrames_ftlk3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1703580679]
 offset_left = -489.0
@@ -22,5 +27,3 @@ position = Vector2(921.3714, 233.8356)
 rotation = 0.0024566234
 scale = Vector2(25.425716, 17.032883)
 shape = SubResource("RectangleShape2D_ftlk3")
-
-[connection signal="body_entered" from="AcidArea" to="." method="_on_acid_area_body_entered"]

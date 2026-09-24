@@ -18,7 +18,7 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="Boss1" type="CharacterBody2D" unique_id=1197498593]
+[node name="Boss1" type="RigidBody2D" unique_id=697980045]
 script = ExtResource("1_gu4qg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1916998823]

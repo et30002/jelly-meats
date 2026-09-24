@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 # Acid block variables.
 @onready var acid_area: Area2D = $AcidArea

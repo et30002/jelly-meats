@@ -53,6 +53,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-# If area 2D overlaps player.
-func _on_player_area_body_entered(body: Node2D) -> void:
-	pass
+# specify that it only wants certain ones
+func _player_enter_shape(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	
+	get_tree().quit()
