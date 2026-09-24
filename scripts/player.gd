@@ -1,10 +1,14 @@
 extends CharacterBody2D
 
 
+# Constants.
 const SPEED = 600
 const JUMP_VELOCITY = -1000
+# Sprite variables.
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var knife_collision: CollisionShape2D = $AnimatedSprite2D/KnifeHit/KnifeCollision
+# Player health.
+var health: float = 3
 
 
 func _physics_process(delta: float) -> void:
@@ -13,7 +17,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -21,14 +24,11 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("left", "right")
 	
-	
-	
 	# Flip the sprite.
 	if direction > 0:
 		animated_sprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
-	
 	
 	# Play animations.
 	if not (animated_sprite.is_playing() and animated_sprite.animation == "attack"):
@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 				animated_sprite.play("walk")
 		else:
 			animated_sprite.play("jump")
-	
+		# Play attack animation.
 		if Input.is_action_just_pressed("attack"):
 			animated_sprite.play("attack")
 	
@@ -52,3 +52,7 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
+
+# If area 2D overlaps player.
+func _on_player_area_body_entered(body: Node2D) -> void:
+	pass

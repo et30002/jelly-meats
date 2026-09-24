@@ -62,7 +62,7 @@ animations = [{
 size = Vector2(371.25, 411.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
-size = Vector2(344, 548)
+size = Vector2(396, 548)
 
 [node name="Player" type="CharacterBody2D" unique_id=1296514369]
 scale = Vector2(0.25, 0.25)
@@ -80,6 +80,10 @@ position = Vector2(170.375, 1.75)
 shape = SubResource("RectangleShape2D_dqkch")
 disabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=192215796]
-position = Vector2(-16, 2)
+[node name="PlayerArea" type="Area2D" parent="." unique_id=486241942]
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="PlayerArea" unique_id=192215796]
+position = Vector2(-42, 2)
 shape = SubResource("RectangleShape2D_qlg0r")
+
+[connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]

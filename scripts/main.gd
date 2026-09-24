@@ -2,6 +2,7 @@ extends Control
 
 
 
+# Menu buttons.
 @onready var fullscreen: Button = $Buttons/Fullscreen
 @onready var windowed: Button = $Windowed
 
@@ -21,12 +22,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 
-# Volume slider.
-
 # Fullscreen.
 func _on_fullscreen_pressed() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
+# Windowed.
 func _on_windowed_pressed() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 

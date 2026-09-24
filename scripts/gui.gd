@@ -1,5 +1,6 @@
 extends Control
 
+# Progress bar variable.
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 # Called when the node enters the scene tree for the first time.
@@ -9,10 +10,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#Lower boss health.
+	
+	#Lower boss health. [REPLACE]
 	if Input.is_action_just_pressed("attack"):
 		progress_bar.set_value_no_signal(progress_bar.value - 10)
 	
 	# If player wins.
 	if progress_bar.value == 0:
 		progress_bar.visible = false
+	
+	
+	

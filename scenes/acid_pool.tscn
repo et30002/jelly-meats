@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://baowr64nuphl1" path="res://scripts/acid_pool.gd" id="1_ftlk3"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftlk3"]
+size = Vector2(110.80345, 27.612991)
+
 [node name="Acid_Pool" type="CharacterBody2D" unique_id=237109865]
 script = ExtResource("1_ftlk3")
 
@@ -12,4 +15,12 @@ offset_bottom = 469.0
 color = Color(0.46444714, 1.100991e-06, 2.4065375e-07, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1442864805]
+[node name="AcidArea" type="Area2D" parent="." unique_id=1442864805]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AcidArea" unique_id=1749878492]
+position = Vector2(921.3714, 233.8356)
+rotation = 0.0024566234
+scale = Vector2(25.425716, 17.032883)
+shape = SubResource("RectangleShape2D_ftlk3")
+
+[connection signal="body_entered" from="AcidArea" to="." method="_on_acid_area_body_entered"]
