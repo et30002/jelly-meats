@@ -18,10 +18,21 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="Boss1" type="RigidBody2D" unique_id=697980045]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qrnk6"]
+radius = 9.524895
+height = 122.145325
+
+[node name="Boss1" type="Area2D" unique_id=920995169]
 script = ExtResource("1_gu4qg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1916998823]
-position = Vector2(30, -323)
 sprite_frames = SubResource("SpriteFrames_j4int")
 animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1346897640]
+position = Vector2(48.000004, 364.00003)
+scale = Vector2(87.56001, 11.559999)
+shape = SubResource("CapsuleShape2D_qrnk6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

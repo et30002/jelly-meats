@@ -4,11 +4,23 @@ extends CharacterBody2D
 # Constants.
 const SPEED = 600
 const JUMP_VELOCITY = -1000
+
 # Sprite variables.
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var knife_collision: CollisionShape2D = $AnimatedSprite2D/KnifeHit/KnifeCollision
+
 # Player health.
 var health: float = 3
+
+# Get GUI.
+@export var gui: Control
+
+# Get boss_1.
+@export var boss_1: Area2D
+
+# Hit sound.
+@onready var player_hit_sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 
 
 func _physics_process(delta: float) -> void:
@@ -42,6 +54,12 @@ func _physics_process(delta: float) -> void:
 		# Play attack animation.
 		if Input.is_action_just_pressed("attack"):
 			animated_sprite.play("attack")
+			player_hit_sfx.play()
+			# If player is in range & attacking, lower boss health.
+			if boss_1.player_in_range == true:
+				boss_1.health = boss_1.health - 10
+				gui.progress_bar.set_value_no_signal(boss_1.health)
+	
 	
 	# Move the sprite.
 	if direction:
@@ -52,8 +70,3 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
-
-# specify that it only wants certain ones
-func _player_enter_shape(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	
-	get_tree().quit()

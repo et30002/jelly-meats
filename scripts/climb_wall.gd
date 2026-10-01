@@ -1,16 +1,11 @@
 extends Area2D
 
-# Animated sprite.
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
 # Get player.
 @export var player: CharacterBody2D
 
-# Boss health value.
-var health: float = 100
+# Player inside shape.
+var player_in_climb: bool = false
 
-# Is player in range?
-var player_in_range: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,17 +15,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	# Play boss idle.
-	animated_sprite.play("idle")
+	pass
 
 
-# If player is attacking over boss.
 func _on_body_entered(body: Node2D) -> void:
-	if body == player:
-		player_in_range = true
+	player_in_climb = true
 
 
 func _on_body_exited(body: Node2D) -> void:
-	if body == player:
-		player_in_range = false
+	player_in_climb = false
