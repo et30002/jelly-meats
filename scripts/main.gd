@@ -20,8 +20,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		get_tree().change_scene_to_file('res://scenes/level_1.tscn')
 	
-	if audio_stream_player.finished:
-		audio_stream_player.play()
+	#if audio_stream_player.finished:
+		#audio_stream_player.play()
 	
 	# Quit game.
 	if Input.is_action_just_pressed("quit"):
