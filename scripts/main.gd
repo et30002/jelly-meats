@@ -13,12 +13,17 @@ extends Control
 @onready var options_contents: Control = $OptionsContents
 @onready var back: Button = $Back
 
+# Fade.
+var do_fade: bool = true
+@onready var menu_fades_in: AnimatedSprite2D = $MenuFadesIn
+
+
+
 
 # Menu Sprites.
 @onready var meaty: AnimatedSprite2D = $Meaty
 @onready var knife_buttons: AnimatedSprite2D = $KnifeButtons
 @onready var knife_back: AnimatedSprite2D = $KnifeBack
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +33,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if do_fade:
+		menu_fades_in.visible = true
+		menu_fades_in.play("default")
+		await menu_fades_in.animation_finished
+		menu_fades_in.visible = false
+		do_fade = false
+		
 	# Quit game.
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()

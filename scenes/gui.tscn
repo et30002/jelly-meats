@@ -9,6 +9,17 @@
 [ext_resource type="Texture2D" uid="uid://bk4i75b76di5h" path="res://assets/backgrounds/back_button2.png" id="7_7yii4"]
 [ext_resource type="Texture2D" uid="uid://dsxovvvlvf7s2" path="res://assets/backgrounds/losescreen.png" id="8_4yt8u"]
 [ext_resource type="Texture2D" uid="uid://t40y3x6v7bcs" path="res://assets/backgrounds/winscreen.png" id="9_p54wi"]
+[ext_resource type="Texture2D" uid="uid://bjqiug5yt81b1" path="res://assets/backgrounds/quit_to_menu_1.png" id="10_v3be1"]
+[ext_resource type="Texture2D" uid="uid://bkihfofg5qqum" path="res://assets/backgrounds/quit_to_menu_2.png" id="11_xqxrh"]
+[ext_resource type="Texture2D" uid="uid://da15cvoca7a83" path="res://assets/backgrounds/fade1.png" id="12_mnopy"]
+[ext_resource type="Texture2D" uid="uid://w74rarsp2aui" path="res://assets/backgrounds/fade2.png" id="13_1tl11"]
+[ext_resource type="Texture2D" uid="uid://da1ro0wqpm6t2" path="res://assets/backgrounds/fade3.png" id="14_55n0w"]
+[ext_resource type="Texture2D" uid="uid://cs3of6c5mcfoa" path="res://assets/backgrounds/fade4.png" id="15_16c12"]
+[ext_resource type="Texture2D" uid="uid://bkibw168k6n4s" path="res://assets/backgrounds/fade5.png" id="16_ds3lq"]
+[ext_resource type="Texture2D" uid="uid://c1yvssrhfe0e2" path="res://assets/backgrounds/fade7.png" id="17_onkih"]
+[ext_resource type="Texture2D" uid="uid://b7hmgmi5yy1ao" path="res://assets/backgrounds/fade6.png" id="18_imf4q"]
+[ext_resource type="Texture2D" uid="uid://2s80hrbshjw0" path="res://assets/backgrounds/fade8.png" id="19_mpgi2"]
+[ext_resource type="Texture2D" uid="uid://bu3l6nrnrhehh" path="res://assets/backgrounds/fade9.png" id="20_dkyfh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_08a8y"]
 animations = [{
@@ -40,6 +51,96 @@ animations = [{
 "texture": ExtResource("7_7yii4")
 }],
 "loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ihewh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_mnopy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1tl11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_55n0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_16c12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ds3lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_onkih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_imf4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_mpgi2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_dkyfh")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnopy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_dkyfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_mpgi2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_imf4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_onkih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ds3lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_16c12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_55n0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1tl11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mnopy")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qupqx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_v3be1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xqxrh")
+}],
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -86,7 +187,6 @@ sprite_frames = SubResource("SpriteFrames_4yt8u")
 [node name="BackButton" type="Button" parent="." unique_id=1938343038]
 process_mode = 2
 process_priority = 1
-visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = -224.0
@@ -95,6 +195,31 @@ offset_right = 413.0
 offset_bottom = 274.0
 scale = Vector2(0.8000006, 0.8000006)
 disabled = true
+
+[node name="FadeIn" type="AnimatedSprite2D" parent="." unique_id=1419080319]
+visible = false
+sprite_frames = SubResource("SpriteFrames_ihewh")
+
+[node name="FadeOut" type="AnimatedSprite2D" parent="." unique_id=1305398357]
+visible = false
+sprite_frames = SubResource("SpriteFrames_mnopy")
+
+[node name="QuittoMenu" type="Button" parent="." unique_id=2085412750]
+process_mode = 2
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -283.0
+offset_top = 6.0
+offset_right = 348.0
+offset_bottom = 90.0
+disabled = true
+
+[node name="ExitToMenu" type="AnimatedSprite2D" parent="." unique_id=398619640]
+process_mode = 2
+visible = false
+position = Vector2(-290.6667, -163.5)
+scale = Vector2(0.6972222, 0.69722223)
+sprite_frames = SubResource("SpriteFrames_qupqx")
 
 [node name="Losescreen" type="Sprite2D" parent="." unique_id=1504964451]
 visible = false
@@ -109,3 +234,6 @@ texture = ExtResource("9_p54wi")
 [connection signal="mouse_entered" from="BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="mouse_exited" from="BackButton" to="." method="_on_back_button_mouse_exited"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="QuittoMenu" to="." method="_on_quitto_menu_mouse_entered"]
+[connection signal="mouse_exited" from="QuittoMenu" to="." method="_on_quitto_menu_mouse_exited"]
+[connection signal="pressed" from="QuittoMenu" to="." method="_on_quitto_menu_pressed"]

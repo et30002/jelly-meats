@@ -4,6 +4,9 @@ extends Control
 @onready var knife_back_pause: AnimatedSprite2D = $KnifeBackPause
 @onready var pause_menu: Sprite2D = $PauseMenu
 @onready var back_button: Button = $BackButton
+@onready var quitto_menu: Button = $QuittoMenu
+@onready var exit_to_menu: AnimatedSprite2D = $ExitToMenu
+
 
 # Lose Screen.
 @onready var losescreen: Sprite2D = $Losescreen
@@ -37,6 +40,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
+
+
 	if player.health == 0:
 		losescreen.visible = true
 
@@ -49,6 +54,8 @@ func _process(delta: float) -> void:
 		back_button.visible = true
 		knife_back_pause.visible = true
 		pause_menu.visible = true
+		quitto_menu.disabled = false
+		exit_to_menu.visible = true
 
 	# Lower player health.
 	player_health.frame = health_assist - player.health
@@ -58,6 +65,7 @@ func _process(delta: float) -> void:
 	
 	# If player wins remove progress bar & boss and display win screen.
 	if progress_bar.value == 0:
+		
 		progress_bar.visible = false
 		boss_1.visible = false
 		winscreen.visible = true
@@ -72,6 +80,8 @@ func _on_back_button_pressed() -> void:
 	back_button.visible = false
 	knife_back_pause.visible = false
 	pause_menu.visible = false
+	quitto_menu.disabled = true
+	exit_to_menu.visible = false
 
 
 func _on_back_button_mouse_entered() -> void:
@@ -80,3 +90,17 @@ func _on_back_button_mouse_entered() -> void:
 
 func _on_back_button_mouse_exited() -> void:
 	knife_back_pause.frame = 0
+
+
+func _on_quitto_menu_pressed() -> void:
+	
+	get_tree().paused = false
+	get_tree().change_scene_to_file('res://scenes/main.tscn')
+
+
+func _on_quitto_menu_mouse_entered() -> void:
+	exit_to_menu.frame = 1
+
+
+func _on_quitto_menu_mouse_exited() -> void:
+	exit_to_menu.frame = 0
