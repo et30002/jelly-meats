@@ -4,6 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bw14q78s6863" path="res://assets/player/player_health_01.png" id="1_ynd5l"]
 [ext_resource type="Texture2D" uid="uid://f3b35t5rqqtj" path="res://assets/player/player_health_02.png" id="2_b8iy7"]
 [ext_resource type="Texture2D" uid="uid://b26xvojjv3d4w" path="res://assets/player/player_health_03.png" id="3_jqlde"]
+[ext_resource type="Texture2D" uid="uid://b2eo0cpe1ebcr" path="res://assets/backgrounds/pause_menu.png" id="5_jqlde"]
+[ext_resource type="Texture2D" uid="uid://v1jemi3lr0ow" path="res://assets/backgrounds/back_button1.png" id="6_08a8y"]
+[ext_resource type="Texture2D" uid="uid://bk4i75b76di5h" path="res://assets/backgrounds/back_button2.png" id="7_7yii4"]
+[ext_resource type="Texture2D" uid="uid://dsxovvvlvf7s2" path="res://assets/backgrounds/losescreen.png" id="8_4yt8u"]
+[ext_resource type="Texture2D" uid="uid://t40y3x6v7bcs" path="res://assets/backgrounds/winscreen.png" id="9_p54wi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_08a8y"]
 animations = [{
@@ -21,6 +26,20 @@ animations = [{
 "texture": null
 }],
 "loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4yt8u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_08a8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7yii4")
+}],
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -47,3 +66,46 @@ offset_right = -6.0
 offset_bottom = -423.99997
 scale = Vector2(2.3081646, 1.8897064)
 value = 100.0
+
+[node name="PauseMenu" type="Sprite2D" parent="." unique_id=759964644]
+process_mode = 2
+process_priority = 1
+visible = false
+position = Vector2(29, -48.000004)
+scale = Vector2(0.649074, 0.6490741)
+texture = ExtResource("5_jqlde")
+
+[node name="KnifeBackPause" type="AnimatedSprite2D" parent="." unique_id=1580243098]
+process_mode = 2
+process_priority = 1
+visible = false
+position = Vector2(-442.9994, -107.99963)
+scale = Vector2(0.8000006, 0.8000006)
+sprite_frames = SubResource("SpriteFrames_4yt8u")
+
+[node name="BackButton" type="Button" parent="." unique_id=1938343038]
+process_mode = 2
+process_priority = 1
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -224.0
+offset_top = 128.0
+offset_right = 413.0
+offset_bottom = 274.0
+scale = Vector2(0.8000006, 0.8000006)
+disabled = true
+
+[node name="Losescreen" type="Sprite2D" parent="." unique_id=1504964451]
+visible = false
+position = Vector2(1, -2)
+texture = ExtResource("8_4yt8u")
+
+[node name="Winscreen" type="Sprite2D" parent="." unique_id=1808976851]
+visible = false
+position = Vector2(0, -1)
+texture = ExtResource("9_p54wi")
+
+[connection signal="mouse_entered" from="BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="BackButton" to="." method="_on_back_button_mouse_exited"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -3,8 +3,8 @@ extends Control
 
 
 # Menu buttons.
-@onready var fullscreen: Button = $Buttons/Fullscreen
-@onready var windowed: Button = $Windowed
+@onready var fullscreen: Button = $OptionsContents/Buttons/Fullscreen
+@onready var windowed: Button = $OptionsContents/Buttons/Windowed
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var quit: Button = $Quit
