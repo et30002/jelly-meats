@@ -20,9 +20,6 @@ extends Control
 # Get boss_1.
 @export var boss_1: Area2D
 
-# Get acid pool.
-@export var acid_pool: Area2D
-
 # Boss health progress bar variable.
 @onready var progress_bar: ProgressBar = $ProgressBar
 
