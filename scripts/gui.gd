@@ -7,6 +7,8 @@ extends Control
 @onready var quitto_menu: Button = $QuittoMenu
 @onready var exit_to_menu: AnimatedSprite2D = $ExitToMenu
 
+# Back to menu button.
+@onready var return_to_menu: Button = $ReturnToMenu
 
 # Lose Screen.
 @onready var losescreen: Sprite2D = $Losescreen
@@ -19,6 +21,9 @@ extends Control
 
 # Get boss_1.
 @export var boss_1: Area2D
+
+# Get spikes.
+@export var spikes: Area2D
 
 # Boss health progress bar variable.
 @onready var progress_bar: ProgressBar = $ProgressBar
@@ -41,6 +46,7 @@ func _process(delta: float) -> void:
 
 	if player.health == 0:
 		losescreen.visible = true
+		return_to_menu.visible = true
 
 
 
@@ -55,17 +61,27 @@ func _process(delta: float) -> void:
 		exit_to_menu.visible = true
 
 	# Lower player health.
-	player_health.frame = health_assist - player.health
+	if health_assist - player.health == 0:
+		player_health.play("three")
+	elif health_assist - player.health == 1:
+		player_health.play("two")
+	elif health_assist - player.health == 2:
+		player_health.play("one")
+	else:
+		player_health.play("none")
+		
+	#player_health.frame = health_assist - player.health
 	
 	# Lower boss health.
 	progress_bar.set_value_no_signal(boss_1.health)
 	
 	# If player wins remove progress bar & boss and display win screen.
 	if progress_bar.value == 0:
-		
+		player_health.visible = false
 		progress_bar.visible = false
 		boss_1.visible = false
 		winscreen.visible = true
+		return_to_menu.visible = true
 
 	
 	
@@ -101,3 +117,13 @@ func _on_quitto_menu_mouse_entered() -> void:
 
 func _on_quitto_menu_mouse_exited() -> void:
 	exit_to_menu.frame = 0
+
+
+func _on_return_to_menu_pressed() -> void:
+	get_tree().change_scene_to_file('res://scenes/main.tscn')
+	
+	
+func _on_spikes_body_entered(body: Node2D) -> void:
+	if body == player:
+		player.health = player.health - 1
+	pass

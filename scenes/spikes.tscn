@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://l6jwmm8i5p11"]
+
+[ext_resource type="Script" uid="uid://b4p1eo21kxfu2" path="res://scripts/spikes.gd" id="1_bflj7"]
+[ext_resource type="Texture2D" uid="uid://bbfxhdgu6j30c" path="res://assets/enemies/spikes_01.png" id="1_xbcdo"]
+[ext_resource type="Texture2D" uid="uid://dafvlrwojfkd" path="res://assets/enemies/spikes_02.png" id="2_bflj7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kd5gq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xbcdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bflj7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbcdo"]
+size = Vector2(100.25, 353)
+
+[node name="Spikes" type="Area2D" unique_id=1896706097]
+script = ExtResource("1_bflj7")
+
+[node name="SpikesSprite" type="AnimatedSprite2D" parent="." unique_id=825035554]
+sprite_frames = SubResource("SpriteFrames_kd5gq")
+
+[node name="spike1" type="CollisionShape2D" parent="." unique_id=1991997915]
+position = Vector2(-767, 341)
+shape = SubResource("RectangleShape2D_xbcdo")
+disabled = true
+
+[node name="spike2" type="CollisionShape2D" parent="." unique_id=2088798310]
+position = Vector2(-432, 327)
+shape = SubResource("RectangleShape2D_xbcdo")
+disabled = true
+
+[node name="spike3" type="CollisionShape2D" parent="." unique_id=84591423]
+position = Vector2(-40, 327)
+shape = SubResource("RectangleShape2D_xbcdo")
+disabled = true
+
+[node name="spike4" type="CollisionShape2D" parent="." unique_id=1000702528]
+position = Vector2(350, 330)
+shape = SubResource("RectangleShape2D_xbcdo")
+disabled = true
+
+[node name="spike5" type="CollisionShape2D" parent="." unique_id=837738459]
+position = Vector2(746, 338)
+shape = SubResource("RectangleShape2D_xbcdo")
+disabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1709063302]
+wait_time = 5.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=88422636]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

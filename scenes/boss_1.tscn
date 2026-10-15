@@ -2,21 +2,25 @@
 
 [ext_resource type="Script" uid="uid://bb5mp20e3hnv5" path="res://scripts/boss_1.gd" id="1_gu4qg"]
 [ext_resource type="Texture2D" uid="uid://b36jxve6euaug" path="res://assets/enemies/boss01.png" id="2_vwre8"]
+[ext_resource type="Texture2D" uid="uid://b8dm34fwkmdon" path="res://assets/enemies/boss01_01.png" id="3_qrnk6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j4int"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_vwre8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qrnk6")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 1.0
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qrnk6"]
-radius = 2.8894467
-height = 72.66436
+radius = 2.661032
+height = 67.30104
 
 [node name="Boss1" type="Area2D" unique_id=920995169]
 script = ExtResource("1_gu4qg")
