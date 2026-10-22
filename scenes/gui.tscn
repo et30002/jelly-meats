@@ -204,14 +204,15 @@ sprite_frames = SubResource("SpriteFrames_08a8y")
 animation = &"one"
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=2140409932]
-modulate = Color(1, 0, 1, 1)
+modulate = Color(1, 0.24705882, 0.42745098, 1)
 layout_mode = 0
 offset_left = -485.0
 offset_top = -468.99997
 offset_right = -37.458252
 offset_bottom = -417.66925
 scale = Vector2(2.3081646, 1.8897064)
-value = 100.0
+max_value = 1000.0
+value = 1000.0
 show_percentage = false
 
 [node name="PauseMenu" type="Sprite2D" parent="." unique_id=759964644]

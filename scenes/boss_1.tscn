@@ -1,20 +1,42 @@
 [gd_scene format=3 uid="uid://beh3tqkumqatc"]
 
 [ext_resource type="Script" uid="uid://bb5mp20e3hnv5" path="res://scripts/boss_1.gd" id="1_gu4qg"]
-[ext_resource type="Texture2D" uid="uid://b36jxve6euaug" path="res://assets/enemies/boss01.png" id="2_vwre8"]
-[ext_resource type="Texture2D" uid="uid://b8dm34fwkmdon" path="res://assets/enemies/boss01_01.png" id="3_qrnk6"]
+[ext_resource type="Texture2D" uid="uid://xmm2i8eusllx" path="res://assets/enemies/boss01_fall.png" id="2_qiwaa"]
+[ext_resource type="Texture2D" uid="uid://f5la1kyswbf0" path="res://assets/enemies/boss_idle1.png" id="3_unxc3"]
+[ext_resource type="Texture2D" uid="uid://n6lu18vr3hds" path="res://assets/enemies/boss_idle2.png" id="4_glbka"]
+[ext_resource type="Texture2D" uid="uid://cfrpgywy4hhkv" path="res://assets/enemies/boss_walk1.png" id="5_5xsh4"]
+[ext_resource type="Texture2D" uid="uid://bdtfy2bjunwet" path="res://assets/enemies/boss_walk2.png" id="6_2tpq1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j4int"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_vwre8")
+"texture": ExtResource("2_qiwaa")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_unxc3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_qrnk6")
+"texture": ExtResource("4_glbka")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5xsh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2tpq1")
+}],
+"loop": true,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -26,6 +48,7 @@ height = 67.30104
 script = ExtResource("1_gu4qg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1916998823]
+position = Vector2(-218, -14)
 sprite_frames = SubResource("SpriteFrames_j4int")
 animation = &"idle"
 
@@ -33,5 +56,10 @@ animation = &"idle"
 scale = Vector2(87.56001, 11.559999)
 shape = SubResource("CapsuleShape2D_qrnk6")
 
+[node name="Timer" type="Timer" parent="." unique_id=1628005431]
+wait_time = 5.0
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
