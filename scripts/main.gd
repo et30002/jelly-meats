@@ -34,6 +34,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	#get_tree().paused = false
+	
 	if do_fade:
 		menu_fades_in.visible = true
 		menu_fades_in.play("default")

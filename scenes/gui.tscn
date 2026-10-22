@@ -211,8 +211,8 @@ offset_top = -468.99997
 offset_right = -37.458252
 offset_bottom = -417.66925
 scale = Vector2(2.3081646, 1.8897064)
-max_value = 1000.0
-value = 1000.0
+max_value = 500.0
+value = 500.0
 show_percentage = false
 
 [node name="PauseMenu" type="Sprite2D" parent="." unique_id=759964644]

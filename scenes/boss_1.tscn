@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://f5la1kyswbf0" path="res://assets/enemies/boss_idle1.png" id="3_unxc3"]
 [ext_resource type="Texture2D" uid="uid://n6lu18vr3hds" path="res://assets/enemies/boss_idle2.png" id="4_glbka"]
 [ext_resource type="Texture2D" uid="uid://cfrpgywy4hhkv" path="res://assets/enemies/boss_walk1.png" id="5_5xsh4"]
+[ext_resource type="Texture2D" uid="uid://bpu3wvik4c7ai" path="res://assets/enemies/boss_mad1.png" id="5_glbka"]
 [ext_resource type="Texture2D" uid="uid://bdtfy2bjunwet" path="res://assets/enemies/boss_walk2.png" id="6_2tpq1"]
+[ext_resource type="Texture2D" uid="uid://cei0cr61kajkm" path="res://assets/enemies/boss_mad2.png" id="6_5xsh4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j4int"]
 animations = [{
@@ -30,6 +32,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_glbka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5xsh4")
+}],
+"loop": true,
+"name": &"mad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_5xsh4")
 }, {
 "duration": 1.0,
@@ -50,7 +63,7 @@ script = ExtResource("1_gu4qg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1916998823]
 position = Vector2(-218, -14)
 sprite_frames = SubResource("SpriteFrames_j4int")
-animation = &"idle"
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1346897640]
 scale = Vector2(87.56001, 11.559999)
@@ -60,6 +73,11 @@ shape = SubResource("CapsuleShape2D_qrnk6")
 wait_time = 5.0
 autostart = true
 
+[node name="AblityDone" type="Timer" parent="." unique_id=269042506]
+wait_time = 7.0
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AblityDone" to="." method="_on_ablity_done_timeout"]

@@ -18,6 +18,9 @@ var health: float = 3
 # Get boss_1.
 @export var boss_1: Area2D
 
+# Get little_boss.
+@export var little_boss: Area2D
+
 # Hit sound.
 @onready var player_hit_sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
@@ -56,6 +59,9 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("attack")
 			player_hit_sfx.play()
 			# If player is in range & attacking, lower boss health.
+			if little_boss.player_in_range == true:
+				little_boss.health = little_boss.health - 10
+			
 			if boss_1.player_in_range == true:
 				boss_1.health = boss_1.health - 10
 				gui.progress_bar.set_value_no_signal(boss_1.health)

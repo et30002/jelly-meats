@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ct8kq444um4l3"]
+
+[ext_resource type="Texture2D" uid="uid://f5la1kyswbf0" path="res://assets/enemies/boss_idle1.png" id="1_d4lhx"]
+[ext_resource type="Script" uid="uid://bbfh6bxle7pe3" path="res://scripts/little_boss.gd" id="1_shnsm"]
+[ext_resource type="Texture2D" uid="uid://n6lu18vr3hds" path="res://assets/enemies/boss_idle2.png" id="2_shnsm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uumba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d4lhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_shnsm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmg73"]
+size = Vector2(164, 218)
+
+[node name="LittleBoss" type="Area2D" unique_id=1222989892]
+script = ExtResource("1_shnsm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=256554140]
+scale = Vector2(0.29, 0.29)
+sprite_frames = SubResource("SpriteFrames_uumba")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2147176342]
+position = Vector2(57, 6)
+shape = SubResource("RectangleShape2D_fmg73")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

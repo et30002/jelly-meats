@@ -22,6 +22,9 @@ extends Control
 # Get boss_1.
 @export var boss_1: Area2D
 
+# Get little_boss.
+@export var little_boss: Area2D
+
 # Get spikes.
 @export var spikes: Area2D
 
@@ -42,11 +45,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
+	if little_boss.health == 0:
+		boss_1.spawn_in = true
 
 
 	if player.health == 0:
 		losescreen.visible = true
 		return_to_menu.visible = true
+		#get_tree().paused = true
 
 
 
@@ -82,6 +88,7 @@ func _process(delta: float) -> void:
 		boss_1.visible = false
 		winscreen.visible = true
 		return_to_menu.visible = true
+		#get_tree().paused = true
 
 	
 	
