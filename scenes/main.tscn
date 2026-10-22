@@ -136,11 +136,13 @@ position = Vector2(960, 540)
 texture = ExtResource("4_tbgi4")
 
 [node name="Meaty" type="AnimatedSprite2D" parent="." unique_id=1174249823]
-position = Vector2(963, 544)
+position = Vector2(931.44446, 597.5)
+scale = Vector2(0.85462964, 0.85462964)
 sprite_frames = SubResource("SpriteFrames_eb6dy")
 
 [node name="KnifeButtons" type="AnimatedSprite2D" parent="." unique_id=2107404075]
-position = Vector2(957, 547)
+position = Vector2(1004.7777, 536.00006)
+scale = Vector2(0.95185184, 0.95185184)
 sprite_frames = SubResource("SpriteFrames_muem4")
 
 [node name="KnifeBack" type="AnimatedSprite2D" parent="." unique_id=327715265]
@@ -152,7 +154,7 @@ sprite_frames = SubResource("SpriteFrames_dp3eg")
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 983.0
-offset_top = 726.0
+offset_top = 732.0
 offset_right = 1871.0
 offset_bottom = 1005.0
 
@@ -164,10 +166,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = -281.0
-offset_right = 923.0
-offset_bottom = -169.0
+offset_left = 95.0
+offset_top = -327.0
+offset_right = 777.0
+offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -177,18 +179,18 @@ theme_override_font_sizes/font_size = 80
 [node name="Start" type="Button" parent="." unique_id=926788708]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 970.0
-offset_top = 207.0
-offset_right = 1761.0
-offset_bottom = 489.0
+offset_left = 1030.0
+offset_top = 137.0
+offset_right = 1742.0
+offset_bottom = 494.0
 
 [node name="Options" type="Button" parent="." unique_id=323183217]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 1070.0
-offset_top = 541.0
-offset_right = 1782.0
-offset_bottom = 724.0
+offset_left = 988.0
+offset_top = 513.0
+offset_right = 1856.0
+offset_bottom = 720.0
 
 [node name="OptionsContents" type="Control" parent="." unique_id=808944884]
 visible = false
