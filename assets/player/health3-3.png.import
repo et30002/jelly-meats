@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh216e6bcrim7"
-path="res://.godot/imported/boss1_background.png-6646ea9b464cdbad9a5cedd2035906dd.ctex"
+uid="uid://dccawsbtqe37d"
+path="res://.godot/imported/health3-3.png-059675f2176ede7a490041e765d8659f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/boss1_background.png"
-dest_files=["res://.godot/imported/boss1_background.png-6646ea9b464cdbad9a5cedd2035906dd.ctex"]
+source_file="res://assets/player/health3-3.png"
+dest_files=["res://.godot/imported/health3-3.png-059675f2176ede7a490041e765d8659f.ctex"]
 
 [params]
 

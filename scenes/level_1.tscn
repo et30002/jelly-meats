@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://31ko527v5yki"]
 
 [ext_resource type="PackedScene" uid="uid://32n3834q8fhv" path="res://scenes/player.tscn" id="1_014kd"]
+[ext_resource type="Texture2D" uid="uid://c6q7ma8txkp1q" path="res://assets/backgrounds/background.png" id="2_15mv3"]
 [ext_resource type="PackedScene" uid="uid://beh3tqkumqatc" path="res://scenes/boss_1.tscn" id="3_4nkto"]
-[ext_resource type="Texture2D" uid="uid://bh216e6bcrim7" path="res://assets/backgrounds/boss1_background.png" id="3_rus8k"]
 [ext_resource type="AudioStream" uid="uid://boag6qnlcvn6c" path="res://assets/sfx/boss_music.wav" id="4_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://c6d26agxy76qv" path="res://scenes/gui.tscn" id="5_15mv3"]
 [ext_resource type="PackedScene" uid="uid://cn5ckrv8jv8cr" path="res://scenes/ham.tscn" id="6_15mv3"]
@@ -28,10 +28,32 @@ func _process(delta: float) -> void:
 [node name="Level1" type="Node2D" unique_id=1254429187]
 script = SubResource("GDScript_m0klm")
 
-[node name="Boss1Background" type="Sprite2D" parent="." unique_id=570787877]
-position = Vector2(162, -1286)
-scale = Vector2(6, 6)
-texture = ExtResource("3_rus8k")
+[node name="BasicPlatform" parent="." unique_id=1227865782 instance=ExtResource("6_pa8r4")]
+position = Vector2(100, 500)
+scale = Vector2(30.56, 22.600002)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=165946858]
+offset_left = -1048.0
+offset_top = -3601.0
+offset_right = 1069.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=203027184]
+position = Vector2(6.9999995, -454)
+scale = Vector2(1.0175927, 1.0175925)
+texture = ExtResource("2_15mv3")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=889402385]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -1739.0
+offset_top = -7.999999
+offset_right = 181.0
+offset_bottom = 1082.0
+grow_vertical = 2
+scale = Vector2(1.695994, -1.249168)
+color = Color(0, 0.13646507, 0.13700715, 0.41960785)
 
 [node name="Boss1" parent="." unique_id=1197498593 node_paths=PackedStringArray("player") instance=ExtResource("3_4nkto")]
 position = Vector2(549, -3338)
@@ -42,10 +64,6 @@ stream = ExtResource("4_5xbjy")
 autoplay = true
 bus = &"Music"
 
-[node name="BasicPlatform" parent="." unique_id=1227865782 instance=ExtResource("6_pa8r4")]
-position = Vector2(100, 500)
-scale = Vector2(30.56, 22.600002)
-
 [node name="Spikes" parent="." unique_id=1896706097 instance=ExtResource("7_pa8r4")]
 position = Vector2(5698, -487)
 
@@ -54,7 +72,7 @@ position = Vector2(508, -207)
 player = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=1296514369 node_paths=PackedStringArray("gui", "boss_1", "ham") instance=ExtResource("1_014kd")]
-position = Vector2(0, -2280)
+position = Vector2(-420, -127)
 gui = NodePath("../GUI")
 boss_1 = NodePath("../Boss1")
 ham = NodePath("../ham")
@@ -64,14 +82,6 @@ scale = Vector2(4, 4)
 limit_left = -900
 limit_right = 900
 limit_bottom = 100
-
-[node name="BasicPlatform2" parent="." unique_id=417994278 instance=ExtResource("6_pa8r4")]
-position = Vector2(-1136, -1384)
-scale = Vector2(1, 81.36)
-
-[node name="BasicPlatform3" parent="." unique_id=677458997 instance=ExtResource("6_pa8r4")]
-position = Vector2(1149, -1452)
-scale = Vector2(1, 81.36)
 
 [node name="GUI" parent="." unique_id=1012906513 node_paths=PackedStringArray("player", "boss_1", "spikes", "ham") instance=ExtResource("5_15mv3")]
 anchors_preset = 0
@@ -87,5 +97,13 @@ player = NodePath("../Player")
 boss_1 = NodePath("../Boss1")
 spikes = NodePath("../Spikes")
 ham = NodePath("../ham")
+
+[node name="BasicPlatform3" parent="." unique_id=677458997 instance=ExtResource("6_pa8r4")]
+position = Vector2(1149, -1452)
+scale = Vector2(1, 81.36)
+
+[node name="BasicPlatform2" parent="." unique_id=417994278 instance=ExtResource("6_pa8r4")]
+position = Vector2(-1136, -1384)
+scale = Vector2(1, 81.36)
 
 [connection signal="body_entered" from="Spikes" to="GUI" method="_on_spikes_body_entered"]

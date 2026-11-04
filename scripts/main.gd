@@ -16,6 +16,7 @@ extends Control
 # Fade.
 var do_fade: bool = true
 @onready var menu_fades_in: AnimatedSprite2D = $MenuFadesIn
+@onready var menu_fades_out: AnimatedSprite2D = $MenuFadesOut
 
 
 
@@ -82,6 +83,9 @@ func _on_quit_mouse_exited() -> void:
 
 func _on_start_pressed() -> void:
 	if knife_buttons.visible:
+		menu_fades_out.visible = true
+		menu_fades_out.play("default")
+		await menu_fades_out.animation_finished
 		get_tree().change_scene_to_file('res://scenes/level_1.tscn')
 
 
