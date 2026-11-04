@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cn5ckrv8jv8cr"]
+
+[ext_resource type="Texture2D" uid="uid://c1fqtfdis3gw" path="res://assets/enemies/ham.png" id="1_24ftf"]
+[ext_resource type="Script" uid="uid://b5xktjkgp2saa" path="res://scripts/ham.gd" id="1_bgy5e"]
+[ext_resource type="Texture2D" uid="uid://c8us4g43rr7en" path="res://assets/enemies/ham_squished.png" id="2_bgy5e"]
+[ext_resource type="Texture2D" uid="uid://de4msrkaiqvcu" path="res://assets/enemies/ham_defeated.png" id="3_jcbsr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5klj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_24ftf")
+}],
+"loop": false,
+"name": &"ham",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jcbsr")
+}],
+"loop": false,
+"name": &"hamdeath",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_24ftf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bgy5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_24ftf")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k62jn"]
+size = Vector2(544, 438)
+
+[node name="ham" type="Area2D" unique_id=1699001463]
+script = ExtResource("1_bgy5e")
+
+[node name="hamsprite" type="AnimatedSprite2D" parent="." unique_id=1048649777]
+sprite_frames = SubResource("SpriteFrames_u5klj")
+animation = &"ham"
+
+[node name="hamcollider" type="CollisionShape2D" parent="." unique_id=1926668689]
+position = Vector2(-64, -6)
+shape = SubResource("RectangleShape2D_k62jn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
