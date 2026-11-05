@@ -40,6 +40,9 @@ var health_assist: float = 3
 # Get ham.
 @export var ham: Area2D
 
+# Fades.
+@onready var fade_in: AnimatedSprite2D = $FadeIn
+@onready var fade_out: AnimatedSprite2D = $FadeOut
 
 
 
@@ -65,6 +68,9 @@ func _process(delta: float) -> void:
 
 
 	if player.health == 0:
+		fade_out.visible = true
+		fade_out.play("default")
+		await fade_out.animation_finished
 		losescreen.visible = true
 		return_to_menu.visible = true
 		#get_tree().paused = true
@@ -98,6 +104,9 @@ func _process(delta: float) -> void:
 	
 	# If player wins remove progress bar & boss and display win screen.
 	if progress_bar.value == 0:
+		fade_out.visible = true
+		fade_out.play("default")
+		await fade_out.animation_finished
 		player_health.visible = false
 		progress_bar.visible = false
 		boss_1.visible = false
