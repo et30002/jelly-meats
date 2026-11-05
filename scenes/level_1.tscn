@@ -55,20 +55,21 @@ grow_vertical = 2
 scale = Vector2(1.695994, -1.249168)
 color = Color(0, 0.13646507, 0.13700715, 0.41960785)
 
-[node name="Boss1" parent="." unique_id=1197498593 node_paths=PackedStringArray("player") instance=ExtResource("3_4nkto")]
-position = Vector2(549, -3338)
-player = NodePath("../Player")
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=108022910]
 stream = ExtResource("4_5xbjy")
 autoplay = true
 bus = &"Music"
 
 [node name="Spikes" parent="." unique_id=1896706097 instance=ExtResource("7_pa8r4")]
+visible = false
 position = Vector2(5698, -487)
 
 [node name="ham" parent="." unique_id=1699001463 node_paths=PackedStringArray("player") instance=ExtResource("6_15mv3")]
 position = Vector2(508, -207)
+player = NodePath("../Player")
+
+[node name="Boss1" parent="." unique_id=1197498593 node_paths=PackedStringArray("player") instance=ExtResource("3_4nkto")]
+position = Vector2(749, -900)
 player = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=1296514369 node_paths=PackedStringArray("gui", "boss_1", "ham") instance=ExtResource("1_014kd")]

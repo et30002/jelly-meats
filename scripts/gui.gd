@@ -63,16 +63,15 @@ func _process(delta: float) -> void:
 	else:
 		progress_bar.visible = false
 
-	#if little_boss.health == 0:
-		#boss_1.spawn_in = true
+	if ham.hamhealth == 0:
+		boss_1.spawn_in = true
+		
 
 
 	if player.health == 0:
-		fade_out.visible = true
-		fade_out.play("default")
-		await fade_out.animation_finished
 		losescreen.visible = true
 		return_to_menu.visible = true
+		get_tree().paused = true
 		#get_tree().paused = true
 
 
@@ -100,18 +99,17 @@ func _process(delta: float) -> void:
 	#player_health.frame = health_assist - player.health
 	
 	# Lower boss health.
-	progress_bar.set_value_no_signal(boss_1.health)
+	if boss_1.spawn_in == true:
+		progress_bar.set_value_no_signal(boss_1.health)
 	
 	# If player wins remove progress bar & boss and display win screen.
 	if progress_bar.value == 0:
-		fade_out.visible = true
-		fade_out.play("default")
-		await fade_out.animation_finished
 		player_health.visible = false
 		progress_bar.visible = false
 		boss_1.visible = false
 		winscreen.visible = true
 		return_to_menu.visible = true
+		get_tree().paused = true
 		#get_tree().paused = true
 
 	
@@ -151,6 +149,7 @@ func _on_quitto_menu_mouse_exited() -> void:
 
 
 func _on_return_to_menu_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file('res://scenes/main.tscn')
 	
 	

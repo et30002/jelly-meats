@@ -153,6 +153,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0014559, 1.0025283)
 script = ExtResource("1_0wfyh")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=231146794]

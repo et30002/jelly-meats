@@ -142,9 +142,6 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
 "texture": ExtResource("20_dkyfh")
 }, {
 "duration": 1.0,
@@ -286,14 +283,17 @@ sprite_frames = SubResource("SpriteFrames_qupqx")
 [node name="Losescreen" type="Sprite2D" parent="." unique_id=1504964451]
 visible = false
 position = Vector2(1, -2)
+scale = Vector2(1.1599998, 1.3199998)
 texture = ExtResource("8_4yt8u")
 
 [node name="Winscreen" type="Sprite2D" parent="." unique_id=1808976851]
 visible = false
 position = Vector2(0, -1)
+scale = Vector2(1.1599998, 1.3199998)
 texture = ExtResource("9_p54wi")
 
 [node name="ReturnToMenu" type="Button" parent="." unique_id=271694661]
+process_mode = 2
 visible = false
 layout_mode = 1
 anchors_preset = 7

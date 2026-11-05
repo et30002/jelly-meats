@@ -19,11 +19,27 @@ var half_health: bool = false
 # Is player in range?
 var player_in_range: bool = false
 
-# Turn around.
-var go_right: bool = false
-var go_left: bool = true
-var is_attacking: bool = false
+# speed
+var speed: float = 1
+var doublespeed: float = 2
+var sinkspeed: float = 40
 
+# SFX
+@onready var boss_audio: AudioStreamPlayer2D = $BossAudio
+@onready var player_hurt_audio: AudioStreamPlayer2D = $PlayerHurtAudio
+
+var boss_audio_done: bool = false
+var hurt_audio_done: bool = false 
+
+
+
+# Turn around.
+#var go_right: bool = false
+#var go_left: bool = true
+
+
+# Is knife attacking?
+var is_attacking: bool = false
 var spawn_in: bool = false
 var start_fight: bool = true
 
@@ -41,40 +57,37 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	if spawn_in == true:
+
+	if spawn_in == false:
+		animated_sprite.visible = false
+	elif spawn_in == true:
+		animated_sprite.visible = true
 		if is_attacking == false:
-			if health <= 250:
-				animated_sprite.play("mad")
-				half_health = true
-			else:
-				animated_sprite.play("idle")
-			if boss_1.global_position.x <= -500:
-				go_left = false
-				go_right = true
-				#animated_sprite.flip_h = true
-			elif boss_1.global_position.x >= 640:
-				go_left = true
-				go_right = false
-				#animated_sprite.flip_h = false
-			
-			if go_left == true:
-				if half_health == false:
-					boss_1.global_position.x -= 5
-				if half_health == true:
-					boss_1.global_position.x -= 10
-			elif go_right == true:
-				if half_health == false:
-					boss_1.global_position.x += 5
-				if half_health == true:
-					boss_1.global_position.x += 10
-			
+			if boss_1.global_position.y >= -900:
+				boss_1.global_position.y -= sinkspeed
+			if player.global_position.x < boss_1.global_position.x:
+				boss_1.global_position.x -= speed
+			elif player.global_position.x > boss_1.global_position.x:
+				boss_1.global_position.x += speed
+		elif is_attacking == true:
+			if boss_1.global_position.y < -200:
+				boss_1.global_position.y += sinkspeed
+		
+	#if is_attacking == false:
+		#boss_1.monitorable = true
+	#else:
+		#boss_1.monitorable = false
+
+	if health <= 250:
+		animated_sprite.frame = 1
+		half_health = true
+		speed = doublespeed
 
 
 # If player is attacking over boss.
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:
-		player_in_range = true
-		if is_attacking == false && spawn_in == true:
+		if player_in_range == true && is_attacking == true:
 			player.health -= 1
 
 
@@ -85,8 +98,9 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	is_attacking = true
-	animated_sprite.play("fall")
+	player_in_range = true
 
 
 func _on_ablity_done_timeout() -> void:
 	is_attacking = false
+	player_in_range = false

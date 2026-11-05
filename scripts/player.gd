@@ -12,6 +12,9 @@ const JUMP_VELOCITY = -1000
 # Player health.
 var health: float = 3
 
+# Can hit knife
+var can_hit: bool = false
+
 # Get GUI.
 @export var gui: Control
 
@@ -65,7 +68,7 @@ func _physics_process(delta: float) -> void:
 			#if little_boss.player_in_range == true:
 				#little_boss.health = little_boss.health - 10
 			
-			if boss_1.player_in_range == true:
+			if boss_1.player_in_range == true && boss_1.spawn_in == true:
 				boss_1.health = boss_1.health - 10
 				gui.progress_bar.set_value_no_signal(boss_1.health)
 			
