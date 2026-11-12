@@ -1,6 +1,8 @@
 extends Control
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+# Camera
+@onready var camera_2d: Camera2D = $Player/Camera2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,6 +13,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	pass
+
 	# Loop the audio.
 	#if audio_stream_player.finished:
 		#audio_stream_player.play()

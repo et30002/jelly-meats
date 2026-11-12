@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://b7hmgmi5yy1ao" path="res://assets/backgrounds/fade6.png" id="18_imf4q"]
 [ext_resource type="Texture2D" uid="uid://2s80hrbshjw0" path="res://assets/backgrounds/fade8.png" id="19_mpgi2"]
 [ext_resource type="Texture2D" uid="uid://bu3l6nrnrhehh" path="res://assets/backgrounds/fade9.png" id="20_dkyfh"]
+[ext_resource type="Texture2D" uid="uid://c5coemh8v6scy" path="res://assets/player/RED1.png" id="27_dkyfh"]
+[ext_resource type="Texture2D" uid="uid://82yj1uf145qr" path="res://assets/player/RED2.png" id="28_ihewh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_08a8y"]
 animations = [{
@@ -201,6 +203,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgn5i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_dkyfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ihewh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_dkyfh")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"red",
+"speed": 5.0
+}]
+
 [node name="GUI" type="Control" unique_id=1012906513]
 layout_mode = 3
 anchors_preset = 15
@@ -310,6 +335,17 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "Return to Menu"
 
+[node name="RedFlash" type="AnimatedSprite2D" parent="." unique_id=8237551]
+modulate = Color(1, 1, 1, 0.4745098)
+position = Vector2(-51.999954, -3.50004)
+scale = Vector2(1.3447917, 1.3879629)
+sprite_frames = SubResource("SpriteFrames_hgn5i")
+animation = &"red"
+frame = 4
+frame_progress = 1.0
+
+[node name="ShakeScreenTimer" type="Timer" parent="." unique_id=1441927273]
+
 [connection signal="mouse_entered" from="BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="mouse_exited" from="BackButton" to="." method="_on_back_button_mouse_exited"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
@@ -317,3 +353,4 @@ text = "Return to Menu"
 [connection signal="mouse_exited" from="QuittoMenu" to="." method="_on_quitto_menu_mouse_exited"]
 [connection signal="pressed" from="QuittoMenu" to="." method="_on_quitto_menu_pressed"]
 [connection signal="pressed" from="ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
+[connection signal="timeout" from="ShakeScreenTimer" to="." method="_on_shake_screen_timer_timeout"]

@@ -12,6 +12,9 @@ extends Area2D
 # Get player.
 @export var player: CharacterBody2D
 
+# Get GUI.
+@export var playergui: Control
+
 # Boss health value.
 var health: float = 500
 var half_health: bool = false
@@ -45,6 +48,9 @@ var start_fight: bool = true
 
 @onready var timer: Timer = $Timer
 @onready var ablity_done: Timer = $AblityDone
+
+# Rust
+@onready var rust: AnimatedSprite2D = $Rust
 
 
 
@@ -89,6 +95,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body == player:
 		if player_in_range == true && is_attacking == true:
 			player.health -= 1
+			player.blood.play("default")
+			playergui.red_flash.play("red")
 
 
 func _on_body_exited(body: Node2D) -> void:

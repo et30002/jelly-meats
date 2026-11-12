@@ -19,6 +19,9 @@ extends Control
 # Get player.
 @export var player: CharacterBody2D
 
+# Camera variable.
+@onready var camera_2d: Camera2D = $"../Player/Camera2D"
+
 # Get boss_1.
 @export var boss_1: Area2D
 
@@ -44,7 +47,12 @@ var health_assist: float = 3
 @onready var fade_in: AnimatedSprite2D = $FadeIn
 @onready var fade_out: AnimatedSprite2D = $FadeOut
 
+# Red flash.
+@onready var red_flash: AnimatedSprite2D = $RedFlash
 
+# Shake timer.
+@onready var shake_screen_timer: Timer = $ShakeScreenTimer
+var start_shake: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -56,16 +64,25 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 
 
-
-
 	if ham.hamhealth == 0:
 		progress_bar.visible = true
 	else:
 		progress_bar.visible = false
 
 	if ham.hamhealth == 0:
+		start_shake = true
+		shake_screen_timer.start()
 		boss_1.spawn_in = true
 		
+	
+	if start_shake == true:
+		camera_2d.apply_shake()
+		if camera_2d.shake_strength > 0:
+			camera_2d.shake_strength = lerpf(camera_2d.shake_strength, 0, camera_2d.shakeFade * delta)
+			camera_2d.offset = camera_2d.randomOffset()
+		
+	
+	
 
 
 	if player.health == 0:
@@ -157,3 +174,7 @@ func _on_spikes_body_entered(body: Node2D) -> void:
 	if body == player:
 		player.health = player.health - 1
 	pass
+
+
+func _on_shake_screen_timer_timeout() -> void:
+	camera_2d.shake = false

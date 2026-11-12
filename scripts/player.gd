@@ -30,6 +30,9 @@ var can_hit: bool = false
 # Hit sound.
 @onready var player_hit_sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+# Blood.
+@onready var blood: AnimatedSprite2D = $Blood
+
 
 
 func _physics_process(delta: float) -> void:
@@ -71,6 +74,7 @@ func _physics_process(delta: float) -> void:
 			if boss_1.player_in_range == true && boss_1.spawn_in == true:
 				boss_1.health = boss_1.health - 10
 				gui.progress_bar.set_value_no_signal(boss_1.health)
+				boss_1.rust.play("default")
 			
 			# lower ham health
 			if ham.insideham == true:

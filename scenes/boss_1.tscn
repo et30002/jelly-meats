@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://c6obqsivtc4xr" path="res://assets/enemies/knifebosshurt.png" id="3_6wt1p"]
 [ext_resource type="AudioStream" uid="uid://y6o6usw2ox6a" path="res://assets/sfx/knifesound.wav" id="4_2ng8k"]
 [ext_resource type="AudioStream" uid="uid://cguwe5wyohint" path="res://assets/sfx/hurtsound.wav" id="5_qiwaa"]
+[ext_resource type="Texture2D" uid="uid://dohejvdjoixr2" path="res://assets/enemies/rust1.png" id="6_unxc3"]
+[ext_resource type="Texture2D" uid="uid://d0n8hnfdt0cte" path="res://assets/enemies/rust2.png" id="7_glbka"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ng8k"]
 animations = [{
@@ -23,6 +25,29 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qrnk6"]
 radius = 1.2677019
 height = 89.79239
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xsh4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_unxc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_glbka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_unxc3")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="Boss1" type="Area2D" unique_id=920995169]
 script = ExtResource("1_gu4qg")
@@ -50,6 +75,9 @@ bus = &"SFX"
 [node name="PlayerHurtAudio" type="AudioStreamPlayer2D" parent="." unique_id=1108138118]
 stream = ExtResource("5_qiwaa")
 bus = &"SFX"
+
+[node name="Rust" type="AnimatedSprite2D" parent="." unique_id=2129413948]
+sprite_frames = SubResource("SpriteFrames_5xsh4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

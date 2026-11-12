@@ -18,7 +18,9 @@ var do_fade: bool = true
 @onready var menu_fades_in: AnimatedSprite2D = $MenuFadesIn
 @onready var menu_fades_out: AnimatedSprite2D = $MenuFadesOut
 
-
+# Title animation
+var title_animated: bool = false
+@onready var title_animation: AnimatedSprite2D = $TitleAnimation
 
 
 # Menu Sprites.
@@ -34,6 +36,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if title_animated == false:
+		title_animation.play("default")
+		title_animated = true
 	
 	#get_tree().paused = false
 	
