@@ -88,7 +88,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 3.0
+"speed": 10.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1296514369]

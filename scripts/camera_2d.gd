@@ -1,21 +1,17 @@
 extends Camera2D
 
-@export var randomStrength: float = 30.0
+@export var randomStrength: float = 15.0
 @export var shakeFade: float = 5.0
 var rng = RandomNumberGenerator.new()
 var shake_strength: float = 0.0
 
-var shake: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 func apply_shake():
-	if shake == true:
 		shake_strength = randomStrength
-	else:
-		shake_strength = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

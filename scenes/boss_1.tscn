@@ -46,7 +46,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 3.0
+"speed": 10.0
 }]
 
 [node name="Boss1" type="Area2D" unique_id=920995169]
