@@ -1,6 +1,12 @@
 extends Control
 
+
+# Rumble.
+@onready var rumble_sound: AudioStreamPlayer2D = $RumbleSound
+
+
 # Pause Menu.
+@onready var menu_button_click: AudioStreamPlayer2D = $MenuButtonClick
 @onready var knife_back_pause: AnimatedSprite2D = $KnifeBackPause
 @onready var pause_menu: Sprite2D = $PauseMenu
 @onready var back_button: Button = $BackButton
@@ -130,6 +136,7 @@ func _process(delta: float) -> void:
 
 
 func _on_back_button_pressed() -> void:
+	menu_button_click.play()
 	get_tree().paused = false
 	back_button.disabled = true
 	back_button.visible = false
@@ -148,7 +155,7 @@ func _on_back_button_mouse_exited() -> void:
 
 
 func _on_quitto_menu_pressed() -> void:
-	
+	menu_button_click.play()
 	get_tree().paused = false
 	get_tree().change_scene_to_file('res://scenes/main.tscn')
 
@@ -162,6 +169,7 @@ func _on_quitto_menu_mouse_exited() -> void:
 
 
 func _on_return_to_menu_pressed() -> void:
+	menu_button_click.play()
 	get_tree().paused = false
 	get_tree().change_scene_to_file('res://scenes/main.tscn')
 	

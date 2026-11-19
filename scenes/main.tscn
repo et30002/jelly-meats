@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://c88b6i248dccp" path="res://assets/fonts/PixelOperator.ttf" id="3_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://c1lq5iuaj3pgf" path="res://assets/sfx/Menu_Button_Click1.wav" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://xcah14iacq25" path="res://assets/main_menu/main_menu_background.png" id="4_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://dcfk4weex2ed3" path="res://assets/sfx/button_hover.wav" id="4_txyw0"]
 [ext_resource type="Texture2D" uid="uid://kqqk7wf6wdur" path="res://assets/backgrounds/menu_meaty_frame01.png" id="5_85g3d"]
 [ext_resource type="Script" uid="uid://dp70dxq4oqlw7" path="res://scripts/volume.gd" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://btp2pyte6nolj" path="res://assets/main_menu/1.png" id="5_vchkt"]
@@ -257,6 +258,10 @@ bus = &"Music"
 stream = ExtResource("3_tefeu")
 bus = &"SFX"
 
+[node name="ButtonHoverSound" type="AudioStreamPlayer2D" parent="." unique_id=672261227]
+stream = ExtResource("4_txyw0")
+bus = &"SFX"
+
 [node name="Temp_Background" type="Sprite2D" parent="." unique_id=2099203747]
 modulate = Color(0.110147424, 0.110147424, 0.110147424, 1)
 self_modulate = Color(8.805001, 8.805001, 8.805001, 1)
@@ -361,6 +366,13 @@ theme_override_font_sizes/font_size = 50
 text = "VOLUME"
 horizontal_alignment = 1
 
+[node name="MusicSwitch" type="CheckButton" parent="OptionsContents/Buttons" unique_id=1528486478]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7372549, 0.6313726, 0.6862745, 1)
+theme_override_fonts/font = ExtResource("3_jyhfs")
+theme_override_font_sizes/font_size = 27
+text = "Music On/Off"
+
 [node name="Fullscreen" type="Button" parent="OptionsContents/Buttons" unique_id=645254795]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7372549, 0.6313726, 0.6862745, 1)
@@ -433,5 +445,6 @@ sprite_frames = SubResource("SpriteFrames_y6deb")
 [connection signal="mouse_entered" from="Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="value_changed" from="OptionsContents/Buttons/Volume" to="OptionsContents/Buttons/Volume" method="_on_value_changed"]
+[connection signal="pressed" from="OptionsContents/Buttons/MusicSwitch" to="." method="_on_music_switch_pressed"]
 [connection signal="pressed" from="OptionsContents/Buttons/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="OptionsContents/Buttons/Windowed" to="." method="_on_windowed_pressed"]

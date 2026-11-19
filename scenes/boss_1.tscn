@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://beh3tqkumqatc"]
 
 [ext_resource type="Script" uid="uid://bb5mp20e3hnv5" path="res://scripts/boss_1.gd" id="1_gu4qg"]
+[ext_resource type="AudioStream" uid="uid://vec36sju7n2n" path="res://assets/sfx/boss_intro.wav" id="2_glbka"]
 [ext_resource type="Texture2D" uid="uid://cca87k3lkh0s2" path="res://assets/enemies/knifeboss.png" id="2_qrnk6"]
 [ext_resource type="Texture2D" uid="uid://c6obqsivtc4xr" path="res://assets/enemies/knifebosshurt.png" id="3_6wt1p"]
 [ext_resource type="AudioStream" uid="uid://y6o6usw2ox6a" path="res://assets/sfx/knifesound.wav" id="4_2ng8k"]
@@ -23,7 +24,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qrnk6"]
-radius = 1.2677019
+radius = 1.1877568
 height = 89.79239
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5xsh4"]
@@ -52,11 +53,15 @@ animations = [{
 [node name="Boss1" type="Area2D" unique_id=920995169]
 script = ExtResource("1_gu4qg")
 
+[node name="RumbleSound" type="AudioStreamPlayer2D" parent="." unique_id=1184637814]
+stream = ExtResource("2_glbka")
+bus = &"SFX"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=455698600]
-visible = false
 sprite_frames = SubResource("SpriteFrames_2ng8k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1346897640]
+position = Vector2(3.9999998, 0)
 scale = Vector2(87.56001, 11.559999)
 shape = SubResource("CapsuleShape2D_qrnk6")
 
