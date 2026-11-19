@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://co20fyb5lyols" path="res://scripts/gui.gd" id="1_b8iy7"]
 [ext_resource type="AudioStream" uid="uid://c1lq5iuaj3pgf" path="res://assets/sfx/Menu_Button_Click1.wav" id="2_ihewh"]
+[ext_resource type="AudioStream" uid="uid://dx0ioe5uh7oxm" path="res://assets/sfx/damage.wav" id="3_hgn5i"]
 [ext_resource type="Texture2D" uid="uid://f3w3tcxkeia8" path="res://assets/player/health1-1.png" id="5_ihewh"]
 [ext_resource type="Texture2D" uid="uid://b2eo0cpe1ebcr" path="res://assets/backgrounds/pause_menu.png" id="5_jqlde"]
 [ext_resource type="Texture2D" uid="uid://v1jemi3lr0ow" path="res://assets/backgrounds/back_button1.png" id="6_08a8y"]
@@ -238,6 +239,10 @@ script = ExtResource("1_b8iy7")
 
 [node name="MenuButtonClick" type="AudioStreamPlayer2D" parent="." unique_id=1398060264]
 stream = ExtResource("2_ihewh")
+bus = &"SFX"
+
+[node name="PlayerDamage" type="AudioStreamPlayer2D" parent="." unique_id=602711236]
+stream = ExtResource("3_hgn5i")
 bus = &"SFX"
 
 [node name="PlayerHealth" type="AnimatedSprite2D" parent="." unique_id=1344595925]

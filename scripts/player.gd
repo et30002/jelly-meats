@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 
+@export var sfx_running: AudioStream
+@export var sfx_jump: AudioStream
+
 # Constants.
 const SPEED = 600
 const JUMP_VELOCITY = -1000
@@ -30,12 +33,18 @@ var can_hit: bool = false
 # Hit sound.
 @onready var player_hit_sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+# Running.
+@onready var running: AudioStreamPlayer2D = $Running
+
+
 # Blood.
 @onready var blood: AnimatedSprite2D = $Blood
 
-
+#
+var play_walking: bool = false
 
 func _physics_process(delta: float) -> void:
+	
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -44,6 +53,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		load_sfx(sfx_jump)
+		%sfx_player.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("left", "right")
@@ -53,6 +64,8 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
+		
+	
 	
 	# Play animations.
 	if not (animated_sprite.is_playing() and animated_sprite.animation == "attack"):
@@ -61,6 +74,7 @@ func _physics_process(delta: float) -> void:
 				animated_sprite.play("idle")
 			else:
 				animated_sprite.play("walk")
+				
 		else:
 			animated_sprite.play("jump")
 		# Play attack animation.
@@ -92,3 +106,8 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
+	
+func load_sfx(sfx_to_load):
+	if %sfx_player.stream != sfx_to_load:
+		%sfx_player.stop()
+		%sfx_player.stream = sfx_to_load

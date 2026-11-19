@@ -4,6 +4,9 @@ extends Control
 # Rumble.
 @onready var rumble_sound: AudioStreamPlayer2D = $RumbleSound
 
+# Damage Sound.
+@onready var player_damage: AudioStreamPlayer2D = $PlayerDamage
+
 
 # Pause Menu.
 @onready var menu_button_click: AudioStreamPlayer2D = $MenuButtonClick
@@ -61,6 +64,9 @@ var health_assist: float = 3
 var stop_shake: float = 60
 var start_timer: bool = false
 
+# Play once.
+var two_health: bool = true
+var one_health: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -69,6 +75,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+
 
 
 	if ham.hamhealth == 0:

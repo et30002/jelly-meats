@@ -29,6 +29,7 @@ var sinkspeed: float = 40
 
 # SFX
 @onready var boss_audio: AudioStreamPlayer2D = $BossAudio
+@onready var player_hurt_audio: AudioStreamPlayer2D = $PlayerHurtAudio
 
 
 

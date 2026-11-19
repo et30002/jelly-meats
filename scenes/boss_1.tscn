@@ -79,6 +79,7 @@ bus = &"SFX"
 
 [node name="PlayerHurtAudio" type="AudioStreamPlayer2D" parent="." unique_id=1108138118]
 stream = ExtResource("5_qiwaa")
+volume_db = 7.979
 bus = &"SFX"
 
 [node name="Rust" type="AnimatedSprite2D" parent="." unique_id=2129413948]
